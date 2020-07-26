@@ -1,0 +1,75 @@
+<!DOCTYPE html> 
+<html> 
+  
+<body> 
+  
+    <h1 style="color: green;">  
+            Setting value to dropdown dynamically  
+    </h1> 
+    
+    <label for="mySelect">Choose a game:</label>
+    <select id="mySelect">
+        <option>Football</option> 
+        <option>Basketball</option> 
+        <option>Hockey</option> 
+        <option>Swiming</option> 
+    </select> 
+
+
+    <p>  Click the button to set value to second option </p> 
+  
+    <button onclick="myFunction()"> Click to set </button> 
+  
+    <script> 
+        //Here we deselect all the options  
+        function myFunction() { 
+            document.getElementById( "mySelect").selectedIndex = "2"; 
+        } 
+    </script> 
+
+    <p>  Click the button to deselect options. </p> 
+  
+    <button onclick="myFunction1()"> Click to disselect </button> 
+
+    <script> 
+        //Here we delselect all the options  
+        function myFunction1() { 
+            document.getElementById("mySelect").selectedIndex = "-1"; 
+        } 
+    </script> 
+
+    
+    <p> Enter the option to be added </p>
+
+    <input type = "text" id = "txt">
+
+    <p>  Click the button to add options. </p> 
+  
+    <button onclick="Add()"> Click to add option </button> 
+
+
+    <script>
+        function Add() {
+            var ddl = document.getElementById("mySelect");
+            var txtbox = document.getElementById("txt")
+            var option = document.createElement("OPTION");
+            option.innerHTML = txtbox.value; 
+            ddl.options.add(option);
+
+            var options = document.getElementById("mySelect").options;
+            n = options.length;
+            for (var i= 0; i<n; i++) {
+                if (options[i].value === txtbox.value) {
+                    options[i].selected= true;
+                    break;
+                }
+            } 
+
+            txtbox.value = " ";
+        }
+
+    </script>
+
+</body> 
+  
+</html> 
